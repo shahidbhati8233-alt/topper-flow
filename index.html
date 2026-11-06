@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Topper Flow — Shahid Khan</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--text:#172033;--muted:#6b7487;--accent:#5549dc;--accent2:#8b5cf6;--line:#e5e9f2;--shadow:0 22px 60px rgba(35,42,70,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at 12% 2%,#ecebff 0,transparent 30%),var(--bg);color:var(--text)}a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,233,242,.85)}
+.navin{max-width:1150px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:21px;font-weight:900;letter-spacing:-.5px}.brand span{color:var(--accent)}.nav-cta{display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--text);font-size:14px;font-weight:800;transition:.2s}.nav-cta:hover{border-color:#cbc8fa;color:var(--accent);transform:translateY(-1px)}
+.hero{max-width:1150px;margin:auto;padding:76px 20px 54px;display:grid;grid-template-columns:1.12fr .88fr;gap:55px;align-items:center;min-height:570px}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid #e1dfff;border-radius:99px;background:rgba(255,255,255,.75);color:var(--accent);font-size:12px;font-weight:850;letter-spacing:.07em}.badge:before{content:"";width:8px;height:8px;border-radius:50%;background:#7668f2;box-shadow:0 0 0 4px #eeedff}.hero h1{font-size:clamp(46px,6.3vw,76px);line-height:1.02;margin:22px 0 17px;letter-spacing:-.055em}.hero h1 span{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:17px;line-height:1.75;color:var(--muted);max-width:560px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:14px;padding:14px 19px;font-weight:800;cursor:pointer;margin:12px 9px 0 0;background:linear-gradient(110deg,var(--accent),#7066ee);color:#fff;box-shadow:0 12px 26px rgba(85,73,220,.25);transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(85,73,220,.3)}.btn svg,.nav-cta svg{width:18px;height:18px}
+.profile{position:relative;max-width:390px;width:100%;justify-self:center;padding:11px;border:1px solid rgba(255,255,255,.8);border-radius:30px;background:rgba(255,255,255,.72);box-shadow:var(--shadow);animation:profileEnter .8s cubic-bezier(.2,.8,.2,1) both}.photo{height:360px;overflow:hidden;border-radius:22px;background:#e8eaff}.photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 35%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}.profile:hover .photo img{transform:scale(1.035)}.profile-info{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 8px 8px}.profile-info h2{margin:0;font-size:19px;letter-spacing:-.02em}.profile-info p{margin:5px 0 0;color:var(--muted);font-size:13px}.profile-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#eeedff;color:var(--accent)}
+section{max-width:1150px;margin:auto;padding:45px 20px 85px}.eyebrow{color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}.title{font-size:clamp(30px,4vw,40px);margin:9px 0;letter-spacing:-.04em}.sub{color:var(--muted);max-width:700px;line-height:1.7}
+footer{border-top:1px solid var(--line);background:rgba(255,255,255,.65);color:var(--muted);text-align:center;padding:25px 20px;font-size:13px}footer strong{color:var(--text);letter-spacing:.08em}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.show{opacity:1;transform:none}
+@keyframes profileEnter{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:32px;padding-top:56px;min-height:auto}.hero-copy{text-align:center}.hero-copy>p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.profile{max-width:340px}.photo{height:330px}.subject-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.navin{padding:12px 15px}section{padding:35px 15px 60px}.hero{padding:42px 18px 25px;gap:25px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero p{font-size:16px}.photo{height:300px}.subject-grid{grid-template-columns:1fr}.profile-info{padding:14px 7px 7px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+.subject-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.subject-card{position:relative;min-height:188px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#fff,#f8f8ff);border-radius:24px;padding:23px;text-align:left;cursor:pointer;box-shadow:0 10px 30px rgba(35,42,70,.05);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,border-color .28s;color:var(--text)}
+.subject-card:after{content:"";position:absolute;width:130px;height:130px;right:-65px;top:-65px;border-radius:50%;background:rgba(112,102,238,.055);transition:transform .35s}.subject-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d7d7ff}.subject-card:hover:after{transform:scale(1.7)}.subject-card:focus-visible{outline:3px solid #bcb7fa;outline-offset:3px}.subject-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:22px;border-radius:15px;background:#eeedff;color:var(--accent)}.subject-icon svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.subject-card b{font-size:18px;display:block}.subject-card small{display:block;color:var(--muted);margin-top:6px;line-height:1.5}
+.resource-page{display:none;position:fixed;inset:0;z-index:50;background:#f7f8fc;overflow:auto;animation:pageIn .35s ease}
+.resource-top{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(15px);border-bottom:1px solid var(--line);padding:15px max(20px,calc((100% - 1100px)/2));display:flex;gap:20px;align-items:center;z-index:2}
+.back{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 15px;font-weight:800;cursor:pointer;color:var(--text)}.back:hover{background:#ececff;color:var(--accent)}
+.resource-inner{max-width:1100px;margin:auto;padding:45px 20px 80px}.resource-hero{display:flex;align-items:center;gap:20px;padding:28px;border-radius:25px;background:linear-gradient(135deg,#fff,#eeedff);border:1px solid var(--line);box-shadow:var(--shadow)}.resource-hero>span{display:grid;place-items:center;width:60px;height:60px;flex:0 0 60px;border-radius:18px;background:#fff;color:var(--accent)}.resource-hero>span svg,.choice-icon svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.resource-hero h2{font-size:38px;margin:4px 0}.resource-hero p{margin:0;color:var(--muted)}
+.resource-step{margin-top:28px}.step-heading{display:flex;align-items:center;gap:14px;margin-bottom:16px}.step-heading h3,.resource-step>h3{margin:0;font-size:21px}.choice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:14px;margin-top:16px}.choice-card{min-height:94px;display:flex;align-items:center;gap:13px;padding:17px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--text);text-align:left;cursor:pointer;box-shadow:0 8px 24px rgba(35,42,70,.05);transition:.2s}.choice-card:hover,.choice-card:focus-visible{border-color:#c8c8f5;transform:translateY(-2px);box-shadow:var(--shadow);outline:none}.choice-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:#ececff;color:var(--accent);font-size:22px}.choice-copy{min-width:0}.choice-copy b{display:block;overflow-wrap:anywhere}.choice-copy small{display:block;color:var(--muted);margin-top:5px}.empty-files{padding:20px;border-radius:16px;background:#fff;border:1px solid var(--line);color:var(--muted)}
+.file-dialog{display:none;position:fixed;inset:0;z-index:80;align-items:center;justify-content:center;padding:18px;background:rgba(17,21,37,.68)}.file-dialog.open{display:flex}.file-dialog-card{width:min(100%,440px);padding:24px;border-radius:22px;background:#fff;box-shadow:0 25px 80px rgba(0,0,0,.25)}.dialog-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.dialog-heading h3{margin:0;font-size:20px;overflow-wrap:anywhere}.file-dialog-card p{color:var(--muted);margin:12px 0 20px}.dialog-close{flex:0 0 auto;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px 11px;font-weight:800;cursor:pointer}.dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.dialog-actions a{display:flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px;border-radius:12px;font-weight:800;text-decoration:none}.dialog-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.dialog-preview{background:var(--accent);color:#fff}.dialog-download{background:#172033;color:#fff}
+@keyframes pageIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(max-width:800px){.subject-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.subject-grid{grid-template-columns:1fr}.resource-inner{padding:25px 15px 60px}.resource-hero{padding:20px}.resource-hero h2{font-size:28px}.resource-top{padding:12px 15px}.choice-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,155px),1fr));gap:10px}.choice-card{min-height:82px;padding:12px}.step-heading{align-items:flex-start;flex-direction:column}.file-dialog-card{padding:20px}.dialog-actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="navin"><a class="brand" href="#home">TOPPER <span>FLOW</span></a><a class="nav-cta" href="#materials"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5zM4 5.5v16M8 7h8M8 11h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Study library</a></div></nav>
+
+<main id="home">
+<div class="hero">
+<div class="hero-copy reveal"><span class="badge">CLASS 10 · YOUR STUDY SPACE</span><h1>Learn with focus.<br><span>Grow with confidence.</span></h1><p>Your study resources, neatly organized in one place. Choose a subject, explore its material, and open the chapter you need.</p><div class="hero-actions"><a class="btn" href="#materials">Explore study material <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+<div class="profile reveal"><div class="photo"><img src="profile.jpg" alt="Shahid Khan"></div><div class="profile-info"><div><h2>Shahid Khan</h2><p>Student · Learner · Creator of Topper Flow</p></div><span class="profile-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.2 5.3L20 10.5l-5.8 2.2L12 18l-2.2-5.3L4 10.5l5.8-2.2L12 3Z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg></span></div></div>
+</div>
+
+<section id="materials">
+<div class="eyebrow reveal">SMART RESOURCE LIBRARY</div>
+<h2 class="title reveal">Study Material</h2>
+<p class="sub reveal">Select a subject to browse its material categories and chapters. Preview or download a file in just a few clicks.</p>
+<div class="subject-grid">
+  <button class="subject-card reveal" onclick="openSubject('Science','science')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6m-5 0v6l-5.5 9.2A1.8 1.8 0 0 0 6 21h12a1.8 1.8 0 0 0 1.5-2.8L14 9V3M8 15h8"/></svg></span><b>Science</b><small>Notes, revision material and question papers</small></button>
+  <button class="subject-card reveal" onclick="openSubject('Maths','maths')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></svg></span><b>Maths</b><small>Practice papers and question bank</small></button>
+  <button class="subject-card reveal" onclick="openSubject('Social Science','sst')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span><b>Social Science</b><small>History, geography and political science</small></button>
+  <button class="subject-card reveal" onclick="openSubject('English','english')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7v14m0-14C9.5 4.5 6.5 4 3 5v14c3.5-1 6.5-.5 9 2m0-14c2.5-2.5 5.5-3 9-2v14c-3.5-1-6.5-.5-9 2"/></svg></span><b>English</b><small>Revision guides, summaries and question bank</small></button>
+  <button class="subject-card reveal" onclick="openSubject('Hindi','hindi')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7v14m0-14C9.5 4.5 6.5 4 3 5v14c3.5-1 6.5-.5 9 2m0-14c2.5-2.5 5.5-3 9-2v14c-3.5-1-6.5-.5-9 2"/><path d="M8 2h8m-7 3 2-3 2 3"/></svg></span><b>Hindi</b><small>Kshitij and Kritika chapter files</small></button>
+  <button class="subject-card reveal" onclick="openSubject('Half-Yearly','halfyearly')"><span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h6m-6 3h4"/></svg></span><b>Half-Yearly</b><small>Exam papers and full-syllabus practice</small></button>
+</div>
+</section>
+
+<div id="resourcePage" class="resource-page">
+  <div class="resource-top"><button class="back" onclick="closeResourcePage()">← Back</button><span id="resourceCrumb">Topper Flow / Science</span></div>
+  <div class="resource-inner">
+    <div class="resource-hero"><span id="resourceIcon">🔬</span><div><div class="eyebrow">RESOURCE CENTER</div><h2 id="resourceTitle">Science</h2><p id="resourceDesc">Select a resource.</p></div></div>
+    <div id="categoryStep" class="resource-step">
+      <h3>Choose a material category</h3>
+      <div id="categoryGrid" class="choice-grid"></div>
+    </div>
+    <div id="chapterStep" class="resource-step" hidden>
+      <div class="step-heading"><button class="back" onclick="showCategories()">← All categories</button><h3 id="categoryTitle"></h3></div>
+      <p class="sub">Choose a chapter or resource to preview or download.</p>
+      <div id="chapterGrid" class="choice-grid"></div>
+    </div>
+  </div>
+  <div id="fileDialog" class="file-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" aria-hidden="true" onclick="if(event.target===this)closeFileDialog()">
+    <div class="file-dialog-card">
+      <div class="dialog-heading"><h3 id="dialogTitle"></h3><button class="dialog-close" onclick="closeFileDialog()" aria-label="Close">✕</button></div>
+      <p>Choose what you want to do with this file.</p>
+      <div class="dialog-actions"><a id="dialogPreview" class="dialog-preview" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.2-6 9.5-6 9.5 6 9.5 6-3.2 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>Preview</a><a id="dialogDownload" class="dialog-download" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></svg>Download</a></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><strong>TOPPER FLOW</strong><br><small>Study smarter, one chapter at a time.</small></footer>
+
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+
+const icons={
+ science:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6m-5 0v6l-5.5 9.2A1.8 1.8 0 0 0 6 21h12a1.8 1.8 0 0 0 1.5-2.8L14 9V3M8 15h8"/></svg>',
+ maths:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></svg>',
+ sst:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>',
+ english:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14m0-14C9.5 4.5 6.5 4 3 5v14c3.5-1 6.5-.5 9 2m0-14c2.5-2.5 5.5-3 9-2v14c-3.5-1-6.5-.5-9 2"/></svg>',
+ hindi:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14m0-14C9.5 4.5 6.5 4 3 5v14c3.5-1 6.5-.5 9 2m0-14c2.5-2.5 5.5-3 9-2v14c-3.5-1-6.5-.5-9 2"/><path d="M8 2h8m-7 3 2-3 2 3"/></svg>',
+ halfyearly:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h6m-6 3h4"/></svg>',
+ folder:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10h18"/></svg>',
+ file:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10z"/><path d="M13 3v7h7M8 14h8m-8 4h8"/></svg>'
+};
+const subjectFiles={
+ science:[
+  {group:'Question papers',files:[['PYQ.pdf','sceince/PYQ.pdf'],['question bank.pdf','sceince/question bank.pdf']]},
+  {group:'Chapter practice',files:[['कक्षा 10 विज्ञान - अध्याय 1_ रासायनिक अभिक्रियाएँ एवं समीकरण (अभ्यास प्रश्न-पत्र 2027).pdf','sceince/कक्षा 10 विज्ञान - अध्याय 1_ रासायनिक अभिक्रियाएँ एवं समीकरण (अभ्यास प्रश्न-पत्र 2027).pdf']]},
+  {group:'Notes',files:['1','2','3','4','5','6','9'].map(n=>['Chapter '+n+'.pdf','sceince/notes/chapter '+n+'.pdf'])},
+  {group:'Revision',files:[['Chapter 1.pdf','sceince/revision/Chapter 1.pdf'],['Chapter 2.pdf','sceince/revision/Chapter 2.pdf'],['chapter 3.pdf','sceince/revision/chapter 3.pdf'],['chapter 4.pdf','sceince/revision/chapter 4.pdf'],['chapter 5 .pdf','sceince/revision/chapter 5 .pdf'],['chapter 6 .pdf','sceince/revision/chapter 6 .pdf']]}
+ ],
+ maths:[
+  {group:'Question bank',files:[['QUESTION BANK.pdf','Maths/QUESTION BANK.pdf']]},
+  {group:'Chapter practice papers',files:[['कक्षा 10 गणित - अध्याय 1_ वास्तविक संख्याएँ (अभ्यास प्रश्न-पत्र 2027).pdf','Maths/कक्षा 10 गणित - अध्याय 1_ वास्तविक संख्याएँ (अभ्यास प्रश्न-पत्र 2027).pdf'],['कक्षा 10 गणित - अध्याय 2_ बहुपद (कठिन अभ्यास प्रश्न-पत्र 2027).pdf','Maths/कक्षा 10 गणित - अध्याय 2_ बहुपद (कठिन अभ्यास प्रश्न-पत्र 2027).pdf']]},
+  {group:'Other files',files:[['2.jpg','Maths/2.jpg']]}
+ ],
+ english:[
+  {group:'Question bank',files:[['QUESTION BANK.pdf','english/QUESTION BANK.pdf']]},
+  {group:'Revision / First Flight',files:[
+   ["A Letter to God Visual Guide.pdf","english/Revision/First flight/A Letter to God Visual Guide.pdf"],
+   ["Anne Frank Master Revision.pdf","english/Revision/First flight/Anne Frank Master Revision.pdf"],
+   ["Glimpses of India Revision.pdf","english/Revision/First flight/Glimpses of India Revision.pdf"],
+   ["Mandela's Long Walk to Freedom.pdf","english/Revision/First flight/Mandela's Long Walk to Freedom.pdf"],
+   ["Mijbil the Otter.pdf","english/Revision/First flight/Mijbil the Otter.pdf"],
+   ["The Proposal Farce.pdf","english/Revision/First flight/The Proposal Farce.pdf"],
+   ["The Sermon at Benares.pdf","english/Revision/First flight/The Sermon at Benares.pdf"],
+   ["Two Stories About Flying Revision.pdf","english/Revision/First flight/Two Stories About Flying Revision.pdf"],
+   ["Valli's Solo Bus Journey.pdf","english/Revision/First flight/Valli's Solo Bus Journey.pdf"]
+  ]},
+  {group:'Revision / Footprint without Feet',files:[
+   ['Bholi to Sulekha.pdf','english/Revision/Footprint without feet/Bholi to Sulekha.pdf'],
+   ['THE MIDNIGHT VISITOR DOSSIER.pdf','english/Revision/Footprint without feet/THE MIDNIGHT VISITOR DOSSIER.pdf'],
+   ['The Necklace Master Revision.pdf','english/Revision/Footprint without feet/The Necklace Master Revision.pdf'],
+   ['The Shotover Deception.pdf','english/Revision/Footprint without feet/The Shotover Deception.pdf'],
+   ["The Thief's Transformation.pdf","english/Revision/Footprint without feet/The Thief's Transformation.pdf"],
+   ['foot print without feet.pdf','english/Revision/Footprint without feet/foot print without feet.pdf']
+  ]},
+  {group:'Summary',files:[["The Midnight Visitor's Summary.pdf","english/Summary/The Midnight Visitor's Summary.pdf"],["The Thief's Story Summary.pdf","english/Summary/The Thief's Story Summary.pdf"]]}
+ ],
+ hindi:[
+  {group:'क्षितिज (भाग-2)',files:['1','2','3','4','5','10','11','12'].map(n=>['chapter '+n+'.pdf','hindi/क्षितिज (भाग-2)/chapter '+n+'.pdf'])},
+  {group:'कृतिका (भाग-2)',files:[['chapter 1 kritika.pdf','hindi/कृतिका (भाग-2)/chapter 1 kritika.pdf'],['chapter 3 kritika.pdf','hindi/कृतिका (भाग-2)/chapter 3 kritika.pdf']]}
+ ],
+ sst:[
+  {group:'Question papers',files:[['PYQ.pdf','social science/PYQ.pdf'],['QUESTION BANK 2026.pdf','social science/QUESTION BANK 2026.pdf']]},
+  {group:'Notes / Geography',files:['1','2','3','4','5','6','7'].map(n=>['Chapter-'+n+'.pdf','social science/Notes/Geography/'+(n==='7'?'chapter-7.pdf':'Chapter-'+n+'.pdf')])},
+  {group:'Notes / History',files:['1','2'].map(n=>['Chapter-'+n+'.pdf','social science/Notes/History/Chapter-'+n+'.pdf'])},
+  {group:'Notes / Political Science',files:['1','2','3','4','5'].map(n=>[(n==='3'||n==='4'?'chapter-':'Chapter-')+n+'.pdf','social science/Notes/Political/'+(n==='3'||n==='4'?'chapter-':'Chapter-')+n+'.pdf'])},
+  {group:'Revision / Geography',files:['1','2','3','4','5','6','7'].map(n=>[n+'.pdf','social science/revision/Geography/'+n+'.pdf'])},
+  {group:'Revision / History',files:['1','2','3','4','5'].map(n=>[n+'.pdf','social science/revision/Histroy/'+n+'.pdf'])}
+ ]
+};
+function openSubject(name,key){
+ document.getElementById('resourcePage').style.display='block';
+ document.body.style.overflow='hidden';
+ document.getElementById('resourceTitle').textContent=name;
+ document.getElementById('resourceCrumb').textContent='Topper Flow / '+name;
+ document.getElementById('resourceIcon').innerHTML=icons[key]||icons.folder;
+ document.getElementById('resourceDesc').textContent='Choose a material category, then select a chapter or resource.';
+ renderCategories(key);
+}
+function fileUrl(path){return path.split('/').map(encodeURIComponent).join('/')}
+function renderCategories(key){
+ const box=document.getElementById('categoryGrid');
+ box.replaceChildren();
+ document.getElementById('chapterStep').hidden=true;
+ document.getElementById('categoryStep').hidden=false;
+ const groups=subjectFiles[key]||[];
+ if(!groups.length){
+  const empty=document.createElement('p');empty.className='empty-files';empty.textContent='No files have been added for this subject yet.';box.appendChild(empty);return;
+ }
+ groups.forEach(group=>{
+  const button=document.createElement('button');button.type='button';button.className='choice-card';
+  const icon=document.createElement('span');icon.className='choice-icon';icon.innerHTML=icons.folder;
+  const copy=document.createElement('span');copy.className='choice-copy';
+  const title=document.createElement('b');title.textContent=group.group;
+  const count=document.createElement('small');count.textContent=group.files.length+' '+(group.files.length===1?'chapter or resource':'chapters or resources');
+  copy.append(title,count);button.append(icon,copy);button.addEventListener('click',()=>showCategory(group));box.appendChild(button);
+ });
+}
+function showCategory(group){
+ document.getElementById('categoryStep').hidden=true;
+ document.getElementById('chapterStep').hidden=false;
+ document.getElementById('categoryTitle').textContent=group.group;
+ const grid=document.getElementById('chapterGrid');
+ grid.replaceChildren();
+ group.files.forEach(([name,path])=>{
+  const button=document.createElement('button');button.type='button';button.className='choice-card';
+  const icon=document.createElement('span');icon.className='choice-icon';icon.innerHTML=icons.file;
+  const copy=document.createElement('span');copy.className='choice-copy';
+  const title=document.createElement('b');title.textContent=chapterLabel(name);
+  const detail=document.createElement('small');detail.textContent=name;
+  copy.append(title,detail);button.append(icon,copy);button.addEventListener('click',()=>openFileDialog(name,path));grid.appendChild(button);
+ });
+}
+function chapterLabel(name){
+ const base=name.replace(/\.[^.]+$/,'');
+ const match=base.match(/(?:chapter[\s-]*|अध्याय\s*)(\d+)/i);
+ if(match)return 'Chapter '+match[1];
+ if(/^\d+$/.test(base))return 'Chapter '+base;
+ return base;
+}
+function openFileDialog(name,path){
+ const url=fileUrl(path);
+ document.getElementById('dialogTitle').textContent=name;
+ const preview=document.getElementById('dialogPreview');preview.href=url;
+ const download=document.getElementById('dialogDownload');download.href=url;download.download=name;
+ const dialog=document.getElementById('fileDialog');dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');
+ document.getElementById('dialogPreview').focus();
+}
+function closeFileDialog(){
+ const dialog=document.getElementById('fileDialog');dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');
+ document.getElementById('dialogPreview').removeAttribute('href');
+ document.getElementById('dialogDownload').removeAttribute('href');
+}
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeFileDialog()});
+function showCategories(){
+ document.getElementById('chapterStep').hidden=true;
+ document.getElementById('categoryStep').hidden=false;
+}
+function closeResourcePage(){
+ closeFileDialog();
+ document.getElementById('resourcePage').style.display='none';
+ document.body.style.overflow='';
+}
+</script>
+</body>
+</html>
